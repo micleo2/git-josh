@@ -15,6 +15,11 @@ if !system("git status")
 end
 
 remote_url = `git remote get-url origin`
+if remote_url.empty?
+  puts red_colorize("Don't run git josh in a repo with no remote origin set!")
+  exit 1
+end
+
 directory_to_remove = `pwd`
 
 while !File.exist?(".git")
