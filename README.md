@@ -13,3 +13,6 @@ To install, execute the following in your terminal:
 ```bashscript
 curl -s https://raw.githubusercontent.com/micleo2/git-josh/master/install.sh | sudo sh
 ```
+
+## Requirements
+Must have ruby installed on your machine. Also only tested on Linux/Mac OS.
