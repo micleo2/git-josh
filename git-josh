@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+def colorize(color_code, str)
+  "\e[#{color_code}m#{str}\e[0m"
+end
+
+def red_colorize(str)
+  colorize(31, str)
+end
+
+# not a github repo, bail early!
+if !system("git status")
+  puts red_colorize("Don't run git josh outside of a repo!")
+  exit 1
+end
+
+remote_url = `git remote get-url origin`
+directory_to_remove = `pwd`
+
+while !File.exist?(".git")
+  Dir.chdir ".."
+  directory_to_remove = `pwd`
+end
+
+puts "Removing #{directory_to_remove}"
+system "rm -rf #{directory_to_remove}"
+system "git clone #{remote_url}"
+puts red_colorize("NOW RUN THE COMMAND \" cd . \"")
