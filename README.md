@@ -11,5 +11,5 @@ Simply run the command `git josh` any where in your repo, followed by `cd .`, an
 To install, execute the following in your terminal:
 
 ```bashscript
-
+curl https://raw.githubusercontent.com/micleo2/git-josh/master/install.sh | sh
 ```
