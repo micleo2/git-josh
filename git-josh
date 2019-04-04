@@ -22,6 +22,8 @@ while !File.exist?(".git")
   directory_to_remove = `pwd`
 end
 
+Dir.chdir ".."
+
 puts "Removing #{directory_to_remove}"
 system "rm -rf #{directory_to_remove}"
 system "git clone #{remote_url}"
